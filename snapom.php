@@ -49,7 +49,7 @@ class snapom {
 				$data = $_POST['data'];
 				if((strlen($data)/2) < $this->maxsize) {
 					$this->file_set_data($this->filename, $name."\n".$data);
-					echo "The file is saved. You can download it <a href='snapom.php?action=download'>here</a>.";
+					echo "The file is saved. You can download it <a href='?action=download'>here</a>.";
 				} else {
 					header("HTTP/1.1 418 OK");
 				}
@@ -69,7 +69,7 @@ class snapom {
 
 	public function downLink () {
 		if(file_exists($this->filename)) {
-			return "You can <a href='snapom.php?action=download'>download</a> the latest version.";
+			return "You can <a href='?action=download'>download</a> the latest version.";
 		} else {
 			return "No file is available. You can upload.";
 		}
@@ -492,7 +492,7 @@ window.onload = function () {
 					}
 				}
 			};
-			xhr.open("POST", "snapom.php?action=upload", true);
+			xhr.open("POST", "?action=upload", true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("name="+imgName+"&data="+hexa_encode(imgFile));
 		};
@@ -581,8 +581,8 @@ $app->request();
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>Snapom!</title>
 		<meta name="viewport" content="initial-scale=1.0"/>
-		<script type="text/javascript" src="snapom.php?action=script"></script>
-		<link rel="stylesheet" type="text/css" href="snapom.php?action=style"/>
+		<script type="text/javascript" src="?action=script"></script>
+		<link rel="stylesheet" type="text/css" href="?action=style"/>
 	</head>
 	<body>
 		<section>
