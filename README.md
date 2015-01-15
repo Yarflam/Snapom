@@ -1,4 +1,6 @@
-# Snapom
+# Snapom!
+
+![Snapom](snapom.png)
 
 Le concept de Snapom est de pouvoir transférer un fichier d'un PC à un autre sans se soucier de la sécurité.
 
@@ -16,10 +18,10 @@ Pour en avoir plusieurs sur le serveur, vous pouvez modifier le nom de fichier d
 
 Pour installer, rien de très compliqué.
 
-Une fois sur le serveur FTP de votre hébergeur, vous envoyez les deux fichiers "snapom.php" et "snapom-data".
+Une fois sur votre serveur FTP, vous envoyez les deux fichiers "snapom.php" et "snapom-data".
 
-Ensuite vous modifiez les droits d'accès du fichier "snapom-data" pour la ré-écriture (chmod 666).
+Vous modifiez les droits d'accès du fichier "snapom-data" pour permettre l'écriture (chmod 666).
 
-Pour terminer, vous n'avez plus qu'à supprimer "snapom-data" du serveur.
+Ensuite vous supprimez "snapom-data".
 
-Let's go ! :)
+Enjoy ! :)
