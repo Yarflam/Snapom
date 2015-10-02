@@ -1,27 +1,52 @@
-# Snapom!
+# Snapom! version 1.0
 
-![Snapom](snapom.png)
+*La version officielle 1.0 est désormais disponible*
 
-Le concept de Snapom est de pouvoir transférer un fichier d'un PC à un autre sans se soucier de la sécurité.
+![Snapom](1.0/snapom.png)
 
-Il utilise une seule version de fichier que l'utilisateur peut soit télécharger, soit actualiser.
+Snapom! est une application *Open Source* permettant d'**échanger des fichiers** entre plusieurs supports numériques connectés à internet.
+Le système est entièrement *asymétrique* pour éviter les pannes réseaux et s'assurer que le fichier est complet.
 
-Rien ne vous interdit de l'utiliser à plusieurs, mais il est fortement conseillé d'avoir une version du programme par personne.
+L'intérêt de l'application est son inspiration pour le *versionning*. Lors d'un transfert, un seul fichier est impacté : *snapom-data*.
+Ce fichier d'échange protège le serveur en isolant le fichier que vous envoyez.
+On enregistre pas de nouveau fichier, on écrase l'existant.
 
-Pour en avoir plusieurs sur le serveur, vous pouvez modifier le nom de fichier de stockage à la ligne 16 du script.
+Snapom! se veut utile pour de l'instantanée.
+
+Il est fortement recommandé d'avoir une version de l'application par personne.
+Pour en héberger plusieurs sur son serveur, on peut modifier le nom du fichier de stockage à la ligne 27.
 
 ```
-16 $this->filename = "snapom-data"; // FILE OF STORAGE
+27		self::$filename = "snapom-data"; /* The name of the repository file */
+```
+
+On peut également choisir la taille autorisée à la ligne 28.
+Par défaut le maximum est de 100 Mo (10 puissance 8 octets).
+
+```
+28		self::$maxsize = pow(10,8); /* Max size allowed to upload (in octet) */
 ```
 
 ## Installation
 
-Pour installer, rien de très compliqué.
+L'installation n'est pas compliqué.
 
-Une fois sur votre serveur FTP, vous envoyez les deux fichiers "snapom.php" et "snapom-data".
+1. Connectez-vous à votre serveur avec un client FTP type Filezilla ou Cyberduck.
 
-Vous modifiez les droits d'accès du fichier "snapom-data" pour permettre l'écriture (chmod 666).
+2. Envoyez les fichiers 'snapom.php' et 'snapom-data' se trouvant dans le répertoire '1.0'.
 
-Ensuite vous supprimez "snapom-data".
+3. Modifiez ensuite les droits d'accès de 'snapom-data' pour permettre l'écriture (chmod 666)
 
-Enjoy ! :)
+Enjoy ;)
+
+## Evolutions
+
+La version 1.0 vient à peine de sortir qu'un correctif est déjà prévu, c'est merveilleux ! :D
+
+En finissant le développement, je me suis rendu compte que la vitesse de transfert n'était pas optimale.
+Je passe tout le contenu binaire en hexadécimal, le fichier double de taille.
+En prenant en compte correctement l'encodage, je pense avoir trouvé un moyen d'envoyer du binaire directement.
+
+Par ailleurs, il est probable que Snapom! s'équipe d'analyseurs réseaux plus avancés.
+
+Profitez bien pour le moment. La version 1.0 est totalement stable, allez-y les yeux fermés ! :)
